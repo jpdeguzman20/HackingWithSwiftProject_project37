@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9BDF192DC72884BF3CF37672927F84AAF5117E12",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "3CF8570A895A3DF1DD86810E8F605EBAA788B616" : 9223372036854775807,
+    "9BDF192DC72884BF3CF37672927F84AAF5117E12" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "02073785-9D04-4FAB-8D69-0C2613A951D6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "3CF8570A895A3DF1DD86810E8F605EBAA788B616" : "",
+    "9BDF192DC72884BF3CF37672927F84AAF5117E12" : "Project37\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Project37",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Project37.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jpdeguzman20\/HackingWithSwiftProjects_project37.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3CF8570A895A3DF1DD86810E8F605EBAA788B616"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jpdeguzman20\/HackingWithSwiftProject_project37.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9BDF192DC72884BF3CF37672927F84AAF5117E12"
+    }
+  ]
+}

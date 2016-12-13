@@ -48,6 +48,27 @@ class CardViewController: UIViewController {
         delegate.cardTapped(self)
     }
     
+    /// wasntTapped() tells a card to zoom away over a period of 0.7 seconds.
+    /// - Returns: nil
+    /// - Parameters: none
+    
+    func wasntTapped() {
+        UIView.animate(withDuration: 0.7) {
+            self.view.transform = CGAffineTransform(scaleX: 0.00001, y: 0.00001)
+            self.view.alpha = 0
+        }
+    }
+    
+    /// wasTapped() flips a single card from the right over a period of 0.7 seconds.
+    /// - Returns: nil
+    /// - Parameters: none
+    
+    func wasTapped() {
+        UIView.transition(with: view, duration: 0.7, options: [.transitionFlipFromRight], animations: { [unowned self] in
+            self.back.isHidden = true
+            self.front.isHidden = false
+        })
+    }
 
     /*
     // MARK: - Navigation

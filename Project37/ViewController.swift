@@ -11,12 +11,19 @@ import GameplayKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var gradientView: GradientVIew!
     @IBOutlet weak var cardContainer: UIView!
 
     var allCards = [CardViewController]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = UIColor.red
+        
+        UIView.animate(withDuration: 20, delay: 0, options: [.allowUserInteraction, .autoreverse, .repeat], animations: {
+            self.view.backgroundColor = UIColor.blue
+        })
         
         loadCards()
     }
@@ -27,10 +34,12 @@ class ViewController: UIViewController {
     }
 
     /// loadCards() assembles an array of positions where the cards need to go, loads the various zener shapes, and creates one card view controller for each position.
-    /// Returns: nil
-    /// Parameters: none
+    /// - Returns: nil
+    /// - Parameters: none
     
     func loadCards() {
+        view.isUserInteractionEnabled = true
+        
         // Remove any existing cards by looping through the card view controllers stored in the allCards array, remove the view, remove the view controller containment, and then clear the whole array.
         for card in allCards {
             card.view.removeFromSuperview()
@@ -84,9 +93,11 @@ class ViewController: UIViewController {
     }
     
     func cardTapped(_ tapped: CardViewController) {
+        // As soon as any card is tapped, disable user interaction from the main view.
         guard view.isUserInteractionEnabled == true else { return }
         view.isUserInteractionEnabled = false
-        
+       
+        // Loop through all the cards in our array until we get to the card that was tapped and tehn we flip it over. All other cards just fade away.
         for card in allCards {
             if card == tapped {
                 card.wasTapped()

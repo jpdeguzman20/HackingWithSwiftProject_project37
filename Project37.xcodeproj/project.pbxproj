@@ -43,6 +43,7 @@
 		295684F31DFA184200711ACD /* PhantomFromSpace.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 295684F11DFA184200711ACD /* PhantomFromSpace.mp3 */; };
 		295684F41DFA184200711ACD /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 295684F21DFA184200711ACD /* README.txt */; };
 		295684F61DFA231D00711ACD /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295684F51DFA231D00711ACD /* CardViewController.swift */; };
+		295684FC1E009C7100711ACD /* GradientVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295684FB1E009C7100711ACD /* GradientVIew.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +129,7 @@
 		295684F11DFA184200711ACD /* PhantomFromSpace.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PhantomFromSpace.mp3; sourceTree = "<group>"; };
 		295684F21DFA184200711ACD /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		295684F51DFA231D00711ACD /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		295684FB1E009C7100711ACD /* GradientVIew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientVIew.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 				295684901DFA15E100711ACD /* ViewController.swift */,
 				295684921DFA15E100711ACD /* Main.storyboard */,
 				295684F51DFA231D00711ACD /* CardViewController.swift */,
+				295684FB1E009C7100711ACD /* GradientVIew.swift */,
 				295684951DFA15E100711ACD /* Assets.xcassets */,
 				295684971DFA15E100711ACD /* LaunchScreen.storyboard */,
 				2956849A1DFA15E100711ACD /* Info.plist */,
@@ -402,6 +405,7 @@
 			files = (
 				295684911DFA15E100711ACD /* ViewController.swift in Sources */,
 				2956848F1DFA15E100711ACD /* AppDelegate.swift in Sources */,
+				295684FC1E009C7100711ACD /* GradientVIew.swift in Sources */,
 				295684F61DFA231D00711ACD /* CardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

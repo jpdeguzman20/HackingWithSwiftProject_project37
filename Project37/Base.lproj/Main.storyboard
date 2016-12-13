@@ -21,8 +21,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rR0-Q2-LgL" customClass="GradientVIew" customModule="Project37" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="10" width="667" height="365"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L9C-lj-C6T">
-                                <rect key="frame" x="92.698011751648664" y="28.443774413642473" width="479.99999999999989" height="320.00000000000006"/>
+                                <rect key="frame" x="93.5" y="27.5" width="480" height="320"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="479.99999999999989" id="aDE-cH-S6c"/>
                                     <constraint firstAttribute="height" constant="320.00000000000006" id="jjJ-Qy-Ok3"/>
@@ -37,10 +50,12 @@
                     </view>
                     <connections>
                         <outlet property="cardContainer" destination="L9C-lj-C6T" id="eiN-XV-gZ7"/>
+                        <outlet property="gradientView" destination="rR0-Q2-LgL" id="GpM-Mj-jFs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="41.829085457271368" y="32.799999999999997"/>
         </scene>
     </scenes>
 </document>
