@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,9 +22,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rR0-Q2-LgL" customClass="GradientVIew" customModule="Project37" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="10" width="667" height="365"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rR0-Q2-LgL" customClass="GradientVIew" customModule="Project37" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="topColor">
@@ -44,8 +44,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="rR0-Q2-LgL" secondAttribute="bottom" id="2m6-FL-wup"/>
                             <constraint firstItem="L9C-lj-C6T" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="863-lF-Mer"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rR0-Q2-LgL" secondAttribute="trailing" constant="-20" id="bL5-MK-L4S"/>
                             <constraint firstItem="L9C-lj-C6T" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fsD-eG-7rG"/>
+                            <constraint firstItem="rR0-Q2-LgL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="j0k-HG-2As"/>
+                            <constraint firstItem="rR0-Q2-LgL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="pMU-2m-69Q"/>
                         </constraints>
                     </view>
                     <connections>

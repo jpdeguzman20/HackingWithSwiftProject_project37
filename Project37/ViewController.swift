@@ -25,6 +25,7 @@ class ViewController: UIViewController {
             self.view.backgroundColor = UIColor.blue
         })
         
+        createParticles()
         loadCards()
     }
 
@@ -108,6 +109,40 @@ class ViewController: UIViewController {
         }
         
         perform(#selector(loadCards), with: nil, afterDelay: 2)
+    }
+    
+    /// createParticles() uses CAEmitterLayer to create falling stars in the background.
+    /// - Returns: nil
+    /// - Parameters: nil
+    
+    func createParticles() {
+        // Set the properties for the particle system.
+        let particleEmitter = CAEmitterLayer()
+        
+        particleEmitter.emitterPosition = CGPoint(x: view.frame.width / 2.0, y: -50)
+        particleEmitter.emitterShape = kCAEmitterLayerLine
+        particleEmitter.emitterSize = CGSize(width: view.frame.width, height: 1)
+        particleEmitter.renderMode = kCAEmitterLayerAdditive
+        
+        
+        // Set the properties for the emitter cells.
+        let cell = CAEmitterCell()
+        
+        cell.birthRate = 2
+        cell.lifetime = 5.0
+        cell.velocity = 100
+        cell.velocityRange = 50
+        cell.emissionLongitude = CGFloat.pi
+        cell.spinRange = 5
+        cell.scale = 0.5
+        cell.scaleRange = 0.25
+        cell.color = UIColor(white: 1, alpha: 0.1).cgColor
+        cell.alphaSpeed = -0.025
+        cell.contents = UIImage(named: "particle")?.cgImage
+        
+        particleEmitter.emitterCells = [cell]
+        
+        gradientView.layer.addSublayer(particleEmitter)
     }
     
 }
