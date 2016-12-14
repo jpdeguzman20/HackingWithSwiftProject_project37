@@ -8,13 +8,19 @@
 
 import UIKit
 import GameplayKit
+import AVFoundation
+import WatchConnectivity
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, WCSessionDelegate {
     
     @IBOutlet weak var gradientView: GradientVIew!
     @IBOutlet weak var cardContainer: UIView!
 
     var allCards = [CardViewController]()
+    
+    var music: AVAudioPlayer!
+    
+    var lastMessage: CFAbsoluteTime = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +31,46 @@ class ViewController: UIViewController {
             self.view.backgroundColor = UIColor.blue
         })
         
+        if(WCSession.isSupported()) {
+            let session = WCSession.default()
+            session.delegate = self
+            session.activate()
+        }
+        
         createParticles()
         loadCards()
+        playMusic()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+        
+        // Get the card the user touches to check whether it was pressed hard or not.
+        guard let touch = touches.first else { return }
+        let location = touch.location(in: cardContainer)
+        
+        for card in allCards {
+            if card.view.frame.contains(location) {
+                // Check if force touch is available.
+                if view.traitCollection.forceTouchCapability == .available {
+                    // Check if the user is pushing hard.
+                    if touch.force == touch.maximumPossibleForce {
+                        // Change the front of the card to be the star card.
+                        card.front.image = UIImage(named: "cardStar")
+                        card.isCorrect = true
+                    }
+                }
+                
+                if card.isCorrect {
+                    sendWatchMessage()
+                }
+            }
+        }
     }
 
     /// loadCards() assembles an array of positions where the cards need to go, loads the various zener shapes, and creates one card view controller for each position.
@@ -145,5 +184,44 @@ class ViewController: UIViewController {
         gradientView.layer.addSublayer(particleEmitter)
     }
     
+    func playMusic() {
+        if let musicURL = Bundle.main.url(forResource: "PhantomFromSpace", withExtension: "mp3") {
+            if let audioPlayer = try? AVAudioPlayer(contentsOf: musicURL) {
+                music = audioPlayer
+                music.numberOfLoops = -1
+                music.play()
+            }
+        }
+    }
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        
+    }
+    
+    func sendWatchMessage() {
+        let currentTime = CFAbsoluteTimeGetCurrent()
+        
+        // If less than half a second has passed, don't send anything.
+        if lastMessage + 0.5 > currentTime{
+            return
+        }
+        
+        // If the watch is reachable, send a message so that it can buzz.
+        if (WCSession.default().isReachable) {
+            let message = ["Message": "Hello"]
+            WCSession.default().sendMessage(message, replyHandler: nil)
+        }
+        
+        // Update rate limiting property.
+        lastMessage = CFAbsoluteTimeGetCurrent()
+    }
 }
 

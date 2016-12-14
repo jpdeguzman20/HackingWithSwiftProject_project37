@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GameplayKit
 
 class CardViewController: UIViewController {
 
@@ -37,6 +38,9 @@ class CardViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(cardTapped))
         back.isUserInteractionEnabled = true
         back.addGestureRecognizer(tap)
+        
+        // Initial call to the wiggle method to make cards move
+        perform(#selector(wiggle), with: nil, afterDelay: 1)
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,14 +74,21 @@ class CardViewController: UIViewController {
         })
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func wiggle() {
+        if GKRandomSource.sharedRandom().nextInt(upperBound: 4) == 1 {
+            UIView.animate(withDuration: 0.2, delay: 0, options: .allowUserInteraction, animations: {
+                // Scale the card so that it is 1% more than normal to trick the user's sight.
+                self.back.transform = CGAffineTransform(scaleX: 1.01, y: 1.01)
+            }) { _ in
+                // Drop it back down to its normal size
+                self.back.transform = CGAffineTransform.identity
+            }
+            
+            // Call this method over again
+            perform(#selector(wiggle), with: nil, afterDelay: 8)
+        } else {
+            perform(#selector(wiggle), with: nil, afterDelay: 2)
+        }
     }
-    */
 
 }
